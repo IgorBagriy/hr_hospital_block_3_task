@@ -20,5 +20,5 @@
     "installable": True,
     "application": True,
     'images':
-        ['hr_hospital/static/description/icon.png'],
+        ['static/description/icon.png'],
 }

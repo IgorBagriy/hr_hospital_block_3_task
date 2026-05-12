@@ -25,6 +25,10 @@ msgid "Doctors"
 msgstr "Лікарі"
 
 #. module: hr_hospital
+msgid "New Doctor"
+msgstr "Новий лікар"
+
+#. module: hr_hospital
 #: model:ir.ui.menu,name:hr_hospital.menu_hr_hospital_visits
 #: model:ir.actions.act_window,name:hr_hospital.action_hr_hospital_visit
 msgid "Visits"

@@ -23,7 +23,7 @@
                         <group>
                             <field name="name"/>
                             <field name="specialization"/>
-                            <field name="mentor_id"/>
+                            <field name="mentor_id" domain="[('id', '!=', id)]"/>
                         </group>
                     </sheet>
                 </form>

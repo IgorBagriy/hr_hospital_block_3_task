@@ -25,5 +25,17 @@
             <field name="mentor_id" ref="doctor_john_dorian"/>
         </record>
 
+        <record id="patient_ben_sullivan" model="hr.hospital.patient">
+            <field name="name">Ben Sullivan</field>
+            <field name="date_of_birth">1970-08-20</field>
+            <field name="gender">male</field>
+        </record>
+
+        <record id="patient_jordan_sullivan" model="hr.hospital.patient">
+            <field name="name">Jordan Sullivan</field>
+            <field name="date_of_birth">1972-12-04</field>
+            <field name="gender">female</field>
+        </record>
+        
     </data>
 </odoo>
