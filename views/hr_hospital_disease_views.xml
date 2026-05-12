@@ -7,7 +7,8 @@
             <field name="model">hr.hospital.disease</field>
             <field name="arch" type="xml">
                 <list>
-                    <field name="name"/>
+                    <field name="display_name" string="Назва"/>
+                    <field name="parent_id"/>
                     <field name="description"/>
                 </list>
             </field>
@@ -20,8 +21,13 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="name"/>
-                            <field name="description"/>
+                            <group>
+                                <field name="name"/>
+                                <field name="parent_id" domain="[('id', '!=', id)]" options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>

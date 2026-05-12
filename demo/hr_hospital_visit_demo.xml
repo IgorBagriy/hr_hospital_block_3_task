@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="visit_demo_1" model="hr.hospital.visit">
+            <field name="patient_id" ref="patient_ben_sullivan"/>
+            <field name="doctor_id" ref="doctor_john_dorian"/>
+            <field name="planned_date" eval="(datetime.now() + relativedelta(days=2)).strftime('%Y-%m-%d 10:00:00')"/>
+            <field name="state">planned</field>
+        </record>
+
+        <record id="visit_demo_2" model="hr.hospital.visit">
+            <field name="patient_id" ref="patient_jordan_sullivan"/>
+            <field name="doctor_id" ref="doctor_elliot_reid"/>
+            <field name="planned_date" eval="(datetime.now() - relativedelta(days=1)).strftime('%Y-%m-%d 09:00:00')"/>
+            <field name="actual_date" eval="(datetime.now() - relativedelta(days=1)).strftime('%Y-%m-%d 09:15:00')"/>
+            <field name="state">completed</field>
+            <field name="summary">&lt;p&gt;Скарги на головний біль. Призначено відпочинок.&lt;/p&gt;</field>
+            <field name="disease_id" ref="disease_flu"/>
+        </record>
+
+        <record id="visit_demo_3" model="hr.hospital.visit">
+            <field name="patient_id" ref="patient_ben_sullivan"/>
+            <field name="doctor_id" ref="doctor_elliot_reid"/>
+            <field name="planned_date" eval="(datetime.now() - relativedelta(hours=5)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="state">cancelled</field>
+        </record>
+
+        <record id="visit_demo_4" model="hr.hospital.visit">
+            <field name="patient_id" ref="patient_ben_sullivan"/>
+            <field name="doctor_id" ref="doctor_john_dorian"/>
+            <field name="planned_date" eval="(datetime.now() - relativedelta(days=3)).strftime('%Y-%m-%d 14:00:00')"/>
+            <field name="actual_date" eval="(datetime.now() - relativedelta(days=3)).strftime('%Y-%m-%d 14:05:00')"/>
+            <field name="state">completed</field>
+            <field name="summary">&lt;p&gt;Плановий огляд. Стан стабільний.&lt;/p&gt;</field>
+        </record>
+
+        <record id="visit_demo_5" model="hr.hospital.visit">
+            <field name="patient_id" ref="patient_jordan_sullivan"/>
+            <field name="doctor_id" ref="doctor_john_dorian"/>
+            <field name="planned_date" eval="datetime.now().strftime('%Y-%m-%d 16:00:00')"/>
+            <field name="state">planned</field>
+        </record>
+
+        <record id="visit_demo_6" model="hr.hospital.visit">
+            <field name="patient_id" ref="patient_ben_sullivan"/>
+            <field name="doctor_id" ref="doctor_john_dorian"/>
+            <field name="planned_date" eval="(datetime.now() - relativedelta(days=5)).strftime('%Y-%m-%d 11:30:00')"/>
+            <field name="actual_date" eval="(datetime.now() - relativedelta(days=5)).strftime('%Y-%m-%d 11:45:00')"/>
+            <field name="state">completed</field>
+            <field name="disease_id" ref="disease_covid"/>
+            <field name="summary">&lt;p&gt;Виявлено симптоми сезонної алергії.&lt;/p&gt;</field>
+        </record>
+
+    </data>
+</odoo>

@@ -8,6 +8,8 @@
             <field name="arch" type="xml">
                 <list>
                     <field name="name"/>
+                    <field name="category_id"/>
+                    <field name="is_intern" widget="boolean_toggle"/> <!-- Ознака інтерна -->
                     <field name="specialization"/>
                     <field name="mentor_id"/>
                 </list>
@@ -21,9 +23,25 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="name"/>
-                            <field name="specialization"/>
-                            <field name="mentor_id" domain="[('id', '!=', id)]"/>
+                            <group string="Основна інформація">
+                                <field name="name"/>
+                                <field name="category_id" options="{'no_create': True}"/>
+                                <field name="user_id" options="{'no_create': True}"/>
+                                <field name="specialization"/>
+                            </group>
+                            <group string="Медичні дані та Наставництво">
+                                <field name="gender"/>
+                                <field name="birth_date"/>
+                                <field name="age"/>
+
+                                <field name="is_intern" invisible="1"/>
+
+                                <field name="mentor_id"
+                                       invisible="not is_intern"
+                                       required="is_intern"
+                                       domain="[('is_intern', '=', False), ('id', '!=', id)]"
+                                       options="{'no_create': True}"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>

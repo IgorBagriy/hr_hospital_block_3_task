@@ -68,21 +68,6 @@ msgid "Gender"
 msgstr "Стать"
 
 #. module: hr_hospital
-#: selection:hr.hospital.patient,gender:0
-msgid "Male"
-msgstr "Чоловіча"
-
-#. module: hr_hospital
-#: selection:hr.hospital.patient,gender:0
-msgid "Female"
-msgstr "Жіноча"
-
-#. module: hr_hospital
-#: selection:hr.hospital.patient,gender:0
-msgid "Other"
-msgstr "Інша"
-
-#. module: hr_hospital
 #: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_visit__visit_date
 msgid "Visit Date"
 msgstr "Дата візиту"
@@ -100,9 +85,79 @@ msgstr "Лікар"
 #. module: hr_hospital
 #: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_visit__disease_id
 msgid "Final Diagnosis"
-msgstr "Фінальний діагноз"
+msgstr "Хвороба"
 
 #. module: hr_hospital
 #: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_disease__description
 msgid "Description"
 msgstr "Опис"
+
+#. module: hr_hospital
+#: model:ir.ui.menu,name:hr_hospital.menu_hospital_config
+msgid "Configuration"
+msgstr "Налаштування"
+
+#. module: hr_hospital
+#: model:ir.model,name:hr_hospital.model_hr_hospital_category
+#: model:ir.ui.menu,name:hr_hospital.menu_doctor_category
+#: model:ir.actions.act_window,name:hr_hospital.action_hr_hospital_category
+msgid "Doctor Categories"
+msgstr "Категорії лікарів"
+
+#. module: hr_hospital
+#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_category__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: hr_hospital
+#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_category__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: hr_hospital
+#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_category__doctor_ids
+#: model:ir.ui.view,arch_db:hr_hospital.view_hr_hospital_category_form
+msgid "Doctors"
+msgstr "Лікарі"
+
+#. module: hr_hospital
+#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_doctor_history__patient_id
+msgid "Пацієнт"
+msgstr "Пацієнт"
+
+#. module: hr_hospital
+#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_doctor_history__doctor_id
+msgid "Лікар"
+msgstr "Лікар"
+
+#. module: hr_hospital
+#: model:ir.model.fields,field_description:hr_hospital.field_hr_hr_hospital__category_id
+msgid "Qualification"
+msgstr "Кваліфікація"
+
+#. module: hr_hospital
+#: model:ir.model,name:hr_hospital.model_hr_hospital_doctor_history
+#: model:ir.ui.menu,name:hr_hospital.menu_doctor_history
+#: model:ir.actions.act_window,name:hr_hospital.action_hr_hospital_doctor_history
+msgid "Doctor History"
+msgstr "Історія лікарів"
+
+#. module: hr_hospital
+#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_doctor_history__appointment_date
+msgid "Appointment Date"
+msgstr "Дата призначення"
+
+#. module: hr_hospital
+#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_doctor_history__change_date
+msgid "Change Date"
+msgstr "Дата зміни"
+
+#. module: hr_hospital
+#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_doctor_history__active
+msgid "Active"
+msgstr "Активно"
+
+#. module: hr_hospital
+#: code:addon/hr_hospital/models/hr_hospital_doctor_history.py:0
+msgid "Дата зміни лікаря не може бути раніше ніж дата призначення"
+msgstr "Дата зміни лікаря не може бути раніше ніж дата призначення"

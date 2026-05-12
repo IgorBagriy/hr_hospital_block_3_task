@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="disease_infections" model="hr.hospital.disease">
+            <field name="name">Інфекційні хвороби</field>
+        </record>
+
+        <record id="disease_respiratory" model="hr.hospital.disease">
+            <field name="name">Респіраторні інфекції</field>
+            <field name="parent_id" ref="disease_infections"/>
+        </record>
+
+        <record id="disease_flu" model="hr.hospital.disease">
+            <field name="name">Грип</field>
+            <field name="parent_id" ref="disease_respiratory"/>
+        </record>
+
+        <record id="disease_covid" model="hr.hospital.disease">
+            <field name="name">COVID-19</field>
+            <field name="parent_id" ref="disease_respiratory"/>
+        </record>
+
+        <record id="disease_skin" model="hr.hospital.disease">
+            <field name="name">Шкірні інфекції</field>
+            <field name="parent_id" ref="disease_infections"/>
+        </record>
+    </data>
+</odoo>

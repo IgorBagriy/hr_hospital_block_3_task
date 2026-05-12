@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+
         <menuitem id="menu_hr_hospital_root" name="Hospital"
                   sequence="10"
                   web_icon="hr_hospital,static/description/hospital.png"/>
@@ -28,5 +29,23 @@
                   parent="menu_hr_hospital_root"
                   action="action_hr_hospital_disease"
                   sequence="40"/>
+
+        <menuitem id="menu_hospital_config"
+                  name="Configuration"
+                  parent="menu_hr_hospital_root"
+                  sequence="100"/>
+
+        <menuitem id="menu_doctor_category"
+                 name="Doctor Categories"
+                 parent="menu_hospital_config"
+                 action="action_hospital_doctor_category"
+                 sequence="10"/>
+
+        <menuitem id="menu_doctor_history"
+                 name="Doctor History"
+                 parent="menu_hr_hospital_root"
+                 action="action_hospital_doctor_history"
+                 sequence="50"/>
+
     </data>
 </odoo>

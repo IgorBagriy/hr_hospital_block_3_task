@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="history_demo_1" model="hr.hospital.doctor.history">
+            <field name="patient_id" ref="patient_ben_sullivan"/>
+            <field name="doctor_id" ref="doctor_john_dorian"/>
+            <field name="appointment_date" eval="(datetime.now() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="history_demo_2" model="hr.hospital.doctor.history">
+            <field name="patient_id" ref="patient_jordan_sullivan"/>
+            <field name="doctor_id" ref="doctor_elliot_reid"/>
+            <field name="appointment_date" eval="(datetime.now() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="history_demo_3" model="hr.hospital.doctor.history">
+            <field name="patient_id" ref="patient_ben_sullivan"/>
+            <field name="doctor_id" ref="doctor_elliot_reid"/>
+            <field name="appointment_date" eval="(datetime.now() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+            <field name="change_date" eval="datetime.now().strftime('%Y-%m-%d')"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="history_demo_4" model="hr.hospital.doctor.history">
+            <field name="patient_id" ref="patient_jordan_sullivan"/>
+            <field name="doctor_id" ref="doctor_john_dorian"/>
+            <field name="appointment_date" eval="datetime.now().strftime('%Y-%m-%d')"/>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</odoo>
