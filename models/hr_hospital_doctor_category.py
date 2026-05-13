@@ -5,16 +5,16 @@ from odoo.exceptions import ValidationError
 class DoctorCategory(models.Model):
     """Model representing doctor qualification categories."""
 
-    _name = "hr.hospital.category"
-    _description = "Doctor Qualification"
-    _order = "sequence"
+    _name = 'hr.hospital.category'
+    _description = 'Doctor Qualification'
+    _order = 'sequence'
 
-    name = fields.Char(string="Name", required=True, translate=True)
-    sequence = fields.Integer(string="Sequence", default=10)
+    name = fields.Char(string='Name', required=True, translate=True)
+    sequence = fields.Integer(string='Sequence', default=10)
     doctor_ids = fields.One2many(
-        comodel_name="hr.hospital.doctor",
-        inverse_name="category_id",
-        string="Doctors",
+        comodel_name='hr.hospital.doctor',
+        inverse_name='category_id',
+        string='Doctors',
     )
 
     _sql_constraints = [
@@ -27,4 +27,4 @@ class DoctorCategory(models.Model):
         for rec in self:
             domain = [('name', '=', rec.name), ('id', '!=', rec.id)]
             if self.search_count(domain) > 0:
-                raise ValidationError("This category name already exists!")
+                raise ValidationError('This category name already exists!')
