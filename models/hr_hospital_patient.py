@@ -23,4 +23,3 @@ class HospitalPatient(models.Model):
         string="Insurance Number",
         size=20,
     )
-
