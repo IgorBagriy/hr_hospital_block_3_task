@@ -1,45 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
 
-        <record id="view_hr_hospital_reassign_doctor_wizard_form" model="ir.ui.view">
-            <field name="name">hr.hospital.reassign.doctor.wizard.form</field>
-            <field name="model">hr.hospital.reassign.doctor.wizard</field>
-            <field name="arch" type="xml">
-                <form string="Масове перепризначення лікаря">
-                    <sheet>
-                        <group>
-                            <group>
-                                <field name="doctor_id" options="{'no_create': True, 'no_open': True}"/>
-                            </group>
-                            <group>
-                                <field name="reassign_date"/>
-                            </group>
+    <record id="view_hr_hospital_reassign_doctor_wizard_form" model="ir.ui.view">
+        <field name="name">hr.hospital.reassign.doctor.wizard.form</field>
+        <field name="model">hr.hospital.reassign.doctor.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Mass Reassign Personal Doctor">
+                <sheet>
+                    <group>
+                        <group string="Selection">
+                            <field name="doctor_id" options="{'no_create': True, 'no_open': True}"/>
                         </group>
-                        <footer>
-                            <button name="action_reassign"
-                                    string="Перепризначити"
-                                    type="object"
-                                    class="btn-primary"
-                                    data-hotkey="q"/>
-                            <button string="Скасувати"
-                                    class="btn-secondary"
-                                    special="cancel"
-                                    data-hotkey="z"/>
-                        </footer>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+                        <group string="Parameters">
+                            <field name="reassign_date"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_reassign"
+                                string="Reassign"
+                                type="object"
+                                class="btn-primary"
+                                data-hotkey="q"/>
+                        <button string="Cancel"
+                                class="btn-secondary"
+                                special="cancel"
+                                data-hotkey="z"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <record id="action_hr_hospital_reassign_doctor_wizard" model="ir.actions.act_window">
-            <field name="name">Змінити персонального лікаря</field>
-            <field name="res_model">hr.hospital.reassign.doctor.wizard</field>
-            <field name="view_mode">form</field>
-            <field name="target">new</field>
-            <field name="binding_model_id" ref="model_hr_hospital_patient"/>
-            <field name="binding_view_types">list</field>
-        </record>
+    <record id="action_hr_hospital_reassign_doctor_wizard" model="ir.actions.act_window">
+        <field name="name">Mass Reassign Doctor</field>
+        <field name="res_model">hr.hospital.reassign.doctor.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_hr_hospital_patient"/>
+        <field name="binding_view_types">list</field>
+    </record>
 
-    </data>
 </odoo>

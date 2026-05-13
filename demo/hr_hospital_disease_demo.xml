@@ -3,16 +3,16 @@
     <data noupdate="1">
 
         <record id="disease_infections" model="hr.hospital.disease">
-            <field name="name">Інфекційні хвороби</field>
+            <field name="name">Infectious Diseases</field>
         </record>
 
         <record id="disease_respiratory" model="hr.hospital.disease">
-            <field name="name">Респіраторні інфекції</field>
+            <field name="name">Respiratory Infections</field>
             <field name="parent_id" ref="disease_infections"/>
         </record>
 
         <record id="disease_flu" model="hr.hospital.disease">
-            <field name="name">Грип</field>
+            <field name="name">Influenza (Flu)</field>
             <field name="parent_id" ref="disease_respiratory"/>
         </record>
 
@@ -22,8 +22,9 @@
         </record>
 
         <record id="disease_skin" model="hr.hospital.disease">
-            <field name="name">Шкірні інфекції</field>
+            <field name="name">Skin Infections</field>
             <field name="parent_id" ref="disease_infections"/>
         </record>
+
     </data>
 </odoo>

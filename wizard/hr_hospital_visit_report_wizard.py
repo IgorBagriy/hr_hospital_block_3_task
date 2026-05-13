@@ -1,21 +1,37 @@
-from odoo import fields, models, api
+from odoo import api, fields, models
+
 
 class VisitReportWizard(models.TransientModel):
+    """Wizard to filter and generate a report of patient visits."""
+
     _name = 'hr.hospital.visit.report.wizard'
     _description = 'Visit Report Wizard'
 
-    doctor_ids = fields.Many2many('hr.hospital.doctor', string='Лікарі')
-    patient_ids = fields.Many2many('hr.hospital.patient', string='Пацієнти')
-    date_start = fields.Date(string='Початок періоду')
-    date_end = fields.Date(string='Кінець періоду')
-    only_completed = fields.Boolean(string='Лише завершені візити', default=True)
-    disease_id = fields.Many2one('hr.hospital.disease', string='Хвороба')
+    doctor_ids = fields.Many2many(
+        comodel_name='hr.hospital.doctor',
+        string='Doctors',
+    )
+    patient_ids = fields.Many2many(
+        comodel_name='hr.hospital.patient',
+        string='Patients',
+    )
+    date_start = fields.Date(string='Start Period')
+    date_end = fields.Date(string='End Period')
+    only_completed = fields.Boolean(
+        string='Only Completed',
+        default=True,
+    )
+    disease_id = fields.Many2one(
+        comodel_name='hr.hospital.disease',
+        string='Disease',
+    )
 
     @api.model
     def default_get(self, fields_list):
+        """Pre-fill doctor or patient fields based on the active model context."""
         res = super().default_get(fields_list)
         active_model = self.env.context.get('active_model')
-        active_ids = self.env.context.get('active_ids')
+        active_ids = self.env.context.get('active_ids') or []
 
         if active_model == 'hr.hospital.doctor':
             res.update({'doctor_ids': [(6, 0, active_ids)]})
@@ -24,6 +40,7 @@ class VisitReportWizard(models.TransientModel):
         return res
 
     def action_get_report(self):
+        """Build a dynamic domain filter and return a filtered view of visits."""
         self.ensure_one()
 
         domain = []

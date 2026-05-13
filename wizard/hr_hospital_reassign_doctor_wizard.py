@@ -1,26 +1,41 @@
-from odoo import models, fields, api
+from odoo import models, fields
+
 
 class MassReassignDoctorWizard(models.TransientModel):
+    """Wizard for mass reassigning personal doctors to selected patients."""
 
     _name = 'hr.hospital.reassign.doctor.wizard'
     _description = 'Mass Reassign Personal Doctor'
 
-    doctor_id = fields.Many2one('hr.hospital.doctor', string='Новий лікар', required=True)
-    reassign_date = fields.Date(string='Перепризначити дату', default=fields.Date.today, required=True)
+    doctor_id = fields.Many2one(
+        comodel_name='hr.hospital.doctor',
+        string='New Doctor',
+        required=True,
+    )
+    reassign_date = fields.Date(
+        string='Reassign Date',
+        default=fields.Date.today,
+        required=True,
+    )
 
     def action_reassign(self):
+        """Reassign doctor for active patients and update history records."""
         self.ensure_one()
 
-        patient_ids = self.env.context.get('active_ids')
-        patients = self.env['hr.hospital.patient'].browse(patient_ids)
+        active_patient_ids = self.env.context.get('active_ids') or []
+        patients = self.env['hr.hospital.patient'].browse(active_patient_ids)
 
         for patient in patients:
             old_history = self.env['hr.hospital.doctor.history'].search([
                 ('patient_id', '=', patient.id),
                 ('active', '=', True)
             ], limit=1)
+
             if old_history:
-                old_history.write({'change_date': self.reassign_date, 'active': False})
+                old_history.write({
+                    'change_date': self.reassign_date,
+                    'active': False
+                })
 
             patient.personal_doctor_id = self.doctor_id
 
@@ -30,4 +45,5 @@ class MassReassignDoctorWizard(models.TransientModel):
                 'appointment_date': self.reassign_date,
                 'active': True,
             })
+
         return {'type': 'ir.actions.act_window_close'}

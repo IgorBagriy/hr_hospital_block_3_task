@@ -1,58 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
 
-        <record id="view_hr_hospital_doctor_list" model="ir.ui.view">
-            <field name="name">hr.hospital.doctor.list</field>
-            <field name="model">hr.hospital.doctor</field>
-            <field name="arch" type="xml">
-                <list>
-                    <field name="name"/>
-                    <field name="category_id"/>
-                    <field name="is_intern" widget="boolean_toggle"/> <!-- Ознака інтерна -->
-                    <field name="specialization"/>
-                    <field name="mentor_id"/>
-                </list>
-            </field>
-        </record>
+    <record id="view_hr_hospital_doctor_list" model="ir.ui.view">
+        <field name="name">hr.hospital.doctor.list</field>
+        <field name="model">hr.hospital.doctor</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="category_id"/>
+                <field name="is_intern" widget="boolean_toggle"/>
+                <field name="specialization"/>
+                <field name="mentor_id"/>
+            </list>
+        </field>
+    </record>
 
-        <record id="view_hr_hospital_doctor_form" model="ir.ui.view">
-            <field name="name">hr.hospital.doctor.form</field>
-            <field name="model">hr.hospital.doctor</field>
-            <field name="arch" type="xml">
-                <form>
-                    <sheet>
-                        <group>
-                            <group string="Основна інформація">
-                                <field name="name"/>
-                                <field name="category_id" options="{'no_create': True}"/>
-                                <field name="user_id" options="{'no_create': True}"/>
-                                <field name="specialization"/>
-                            </group>
-                            <group string="Медичні дані та Наставництво">
-                                <field name="gender"/>
-                                <field name="birth_date"/>
-                                <field name="age"/>
-
-                                <field name="is_intern" invisible="1"/>
-
-                                <field name="mentor_id"
-                                       invisible="not is_intern"
-                                       required="is_intern"
-                                       domain="[('is_intern', '=', False), ('id', '!=', id)]"
-                                       options="{'no_create': True}"/>
-                            </group>
+    <record id="view_hr_hospital_doctor_form" model="ir.ui.view">
+        <field name="name">hr.hospital.doctor.form</field>
+        <field name="model">hr.hospital.doctor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Main Information">
+                            <field name="name"/>
+                            <field name="category_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="user_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="specialization"/>
                         </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+                        <group string="Medical Info &amp; Mentorship">
+                            <field name="gender"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="is_intern" invisible="1"/>
+                            <field name="mentor_id"
+                                   invisible="not is_intern"
+                                   required="is_intern"
+                                   domain="[('is_intern', '=', False), ('id', '!=', id)]"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <record id="action_hr_hospital_doctor" model="ir.actions.act_window">
-            <field name="name">Doctors</field>
-            <field name="res_model">hr.hospital.doctor</field>
-            <field name="view_mode">list,form</field>
-        </record>
+    <record id="action_hr_hospital_doctor" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="res_model">hr.hospital.doctor</field>
+        <field name="view_mode">list,form</field>
+    </record>
 
-    </data>
 </odoo>
