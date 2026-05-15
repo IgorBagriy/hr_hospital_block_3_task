@@ -4,7 +4,7 @@ from odoo import fields, models
 class MassReassignDoctorWizard(models.TransientModel):
     """Wizard for mass reassigning personal doctors to selected patients."""
 
-    _name = 'hr.hospital.reassign.doctor.wizard'
+    _name = 'mass.reassign.doctor.wizard'
     _description = 'Mass Reassign Personal Doctor'
 
     doctor_id = fields.Many2one(
@@ -19,14 +19,15 @@ class MassReassignDoctorWizard(models.TransientModel):
     )
 
     def action_reassign(self):
-        """Reassign doctor for active patients and update history records."""
         self.ensure_one()
 
         active_patient_ids = self.env.context.get('active_ids') or []
         patients = self.env['hr.hospital.patient'].browse(active_patient_ids)
 
+        history_vals_list = []
+
         for patient in patients:
-            old_history = self.env['hr.hospital.doctor.history'].search(
+            old_history = self.env['hospital.doctor.history'].search(
                 [('patient_id', '=', patient.id), ('active', '=', True)], limit=1
             )
 
@@ -35,7 +36,7 @@ class MassReassignDoctorWizard(models.TransientModel):
 
             patient.personal_doctor_id = self.doctor_id
 
-            self.env['hr.hospital.doctor.history'].create(
+            history_vals_list.append(
                 {
                     'patient_id': patient.id,
                     'doctor_id': self.doctor_id.id,
@@ -43,5 +44,8 @@ class MassReassignDoctorWizard(models.TransientModel):
                     'active': True,
                 }
             )
+
+        if history_vals_list:
+            self.env['hospital.doctor.history'].create(history_vals_list)
 
         return {'type': 'ir.actions.act_window_close'}

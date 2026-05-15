@@ -7,12 +7,12 @@ class HospitalDoctor(models.Model):
 
     _name = 'hr.hospital.doctor'
     _description = 'Hospital Doctor'
-    _inherit = ['hr.hospital.medic.info']
+    _inherit = ['hospital.medic.info']
 
     name = fields.Char(string='Full Name', required=True)
     specialization = fields.Char(string='Specialization')
     category_id = fields.Many2one(
-        'hr.hospital.category',
+        'hospital.doctor.category',
         string='Category',
     )
     user_id = fields.Many2one(
@@ -63,7 +63,5 @@ class HospitalDoctor(models.Model):
     def _check_mentor_not_self(self):
         """Ensure that the doctor does not select themselves as a mentor."""
         for rec in self:
-            # rec.id — це ID поточного запису
-            # rec.mentor_id.id — це ID вибраного ментора
             if rec.mentor_id and rec.mentor_id.id == rec.id:
                 raise ValidationError('A doctor cannot be their own mentor.')

@@ -4,7 +4,7 @@ from odoo import api, fields, models
 class VisitReportWizard(models.TransientModel):
     """Wizard to filter and generate a report of patient visits."""
 
-    _name = 'hr.hospital.visit.report.wizard'
+    _name = 'visit.report.wizard'
     _description = 'Visit Report Wizard'
 
     doctor_ids = fields.Many2many(

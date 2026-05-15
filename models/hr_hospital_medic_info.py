@@ -6,7 +6,7 @@ from odoo import api, fields, models
 class HospitalMedicInfo(models.AbstractModel):
     """Abstract model providing shared medical fields for doctors and patients."""
 
-    _name = 'hr.hospital.medic.info'
+    _name = 'hospital.medic.info'
     _description = 'Abstract Medical Info'
 
     blood_group = fields.Selection(

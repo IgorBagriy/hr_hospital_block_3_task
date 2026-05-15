@@ -77,13 +77,13 @@ msgstr "Дата візиту"
 
 #. module: hr_hospital
 #: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_visit__patient_id
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_doctor_history__patient_id
+#: model:ir.model.fields,field_description:hr_hospital.field_hospital_doctor_history__patient_id
 msgid "Patient"
 msgstr "Пацієнт"
 
 #. module: hr_hospital
 #: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_visit__doctor_id
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_doctor_history__doctor_id
+#: model:ir.model.fields,field_description:hr_hospital.field_hospital_doctor_history__doctor_id
 msgid "Doctor"
 msgstr "Лікар"
 
@@ -104,34 +104,34 @@ msgid "Configuration"
 msgstr "Налаштування"
 
 #. module: hr_hospital
-#: model:ir.model,name:hr_hospital.model_hr_hospital_category
-#: model:ir.ui.menu,name:hr_hospital.menu_hr_hospital_doctor_category
-#: model:ir.actions.act_window,name:hr_hospital.action_hr_hospital_category
+#: model:ir.model,name:hr_hospital.model_hospital_doctor_category
+#: model:ir.ui.menu,name:hr_hospital.menu_hospital_doctor_category
+#: model:ir.actions.act_window,name:hr_hospital.action_hospital_doctor_category
 msgid "Doctor Categories"
 msgstr "Категорії лікарів"
 
 #. module: hr_hospital
-#: model:hr.hospital.category,name:hr_hospital.cat_intern
+#: model:hospital.doctor.category,name:hr_hospital.cat_intern
 msgid "Intern Doctor"
 msgstr "Лікар-інтерн"
 
 #. module: hr_hospital
-#: model:hr.hospital.category,name:hr_hospital.cat_specialist
+#: model:hospital.doctor.category,name:hr_hospital.cat_specialist
 msgid "Specialist Doctor"
 msgstr "Лікар-спеціаліст"
 
 #. module: hr_hospital
-#: model:hr.hospital.category,name:hr_hospital.cat_high
+#: model:hospital.doctor.category,name:hr_hospital.cat_high
 msgid "Highest Category Doctor"
 msgstr "Лікар вищої категорії"
 
 #. module: hr_hospital
-#: model:ir.actions.act_window,name:hr_hospital.action_hr_hospital_reassign_doctor_wizard
+#: model:ir.actions.act_window,name:hr_hospital.action_mass_reassign_doctor_wizard
 msgid "Mass Reassign Doctor"
 msgstr "Масове перепризначення лікаря"
 
 #. module: hr_hospital
-#: model:ir.model,name:hr_hospital.model_hr_hospital_reassign_doctor_wizard
+#: model:ir.model,name:hr_hospital.model_mass_reassign_doctor_wizard
 msgid "Mass Reassign Personal Doctor"
 msgstr "Масове перепризначення особистого лікаря"
 
@@ -142,22 +142,22 @@ msgid "Visit Report"
 msgstr "Звіт про візити"
 
 #. module: hr_hospital
-#: model:ir.model,name:hr_hospital.model_hr_hospital_visit_report_wizard
+#: model:ir.model,name:hr_hospital.model_visit_report_wizard
 msgid "Visit Report Wizard"
 msgstr "Майстер звітів про візити"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_category__name
+#: model:ir.model.fields,field_description:hr_hospital.field_hospital_doctor_category__name
 msgid "Name"
 msgstr "Назва"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_category__sequence
+#: model:ir.model.fields,field_description:hr_hospital.field_hospital_doctor_category__sequence
 msgid "Sequence"
 msgstr "Послідовність"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_category__doctor_ids
+#: model:ir.model.fields,field_description:hr_hospital.field_hospital_doctor_category__doctor_ids
 msgid "Doctors"
 msgstr "Лікарі"
 
@@ -167,19 +167,19 @@ msgid "Qualification"
 msgstr "Кваліфікація"
 
 #. module: hr_hospital
-#: model:ir.model,name:hr_hospital.model_hr_hospital_doctor_history
-#: model:ir.ui.menu,name:hr_hospital.menu_hr_hospital_doctor_history
-#: model:ir.actions.act_window,name:hr_hospital.action_hr_hospital_doctor_history
+#: model:ir.model,name:hr_hospital.model_hospital_doctor_history
+#: model:ir.ui.menu,name:hr_hospital.menu_hospital_doctor_history
+#: model:ir.actions.act_window,name:hr_hospital.action_hospital_doctor_history
 msgid "Doctor History"
 msgstr "Історія лікарів"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_doctor_history__appointment_date
+#: model:ir.model.fields,field_description:hr_hospital.field_hospital_doctor_history__appointment_date
 msgid "Appointment Date"
 msgstr "Дата призначення"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_doctor_history__change_date
+#: model:ir.model.fields,field_description:hr_hospital.field_hospital_doctor_history__change_date
 msgid "Change Date"
 msgstr "Дата зміни"
 
@@ -199,8 +199,8 @@ msgid "Parent Category"
 msgstr "Батьківська категорія"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_doctor_history__active
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_visit_report_wizard__only_completed
+#: model:ir.model.fields,field_description:hr_hospital.field_hospital_doctor_history__active
+#: model:ir.model.fields,field_description:hr_hospital.field_visit_report_wizard__only_completed
 msgid "Active"
 msgstr "Активно"
 
@@ -235,22 +235,22 @@ msgid "Actual Date"
 msgstr "Фактична дата"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_reassign_doctor_wizard__reassign_date
+#: model:ir.model.fields,field_description:hr_hospital.field_mass_reassign_doctor_wizard__reassign_date
 msgid "Reassign Date"
 msgstr "Дата перепризначення"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_visit_report_wizard__date_start
+#: model:ir.model.fields,field_description:hr_hospital.field_visit_report_wizard__date_start
 msgid "Start Period"
 msgstr "Початок періоду"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_visit_report_wizard__date_end
+#: model:ir.model.fields,field_description:hr_hospital.field_visit_report_wizard__date_end
 msgid "End Period"
 msgstr "Кінець періоду"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_visit_report_wizard__disease_id
+#: model:ir.model.fields,field_description:hr_hospital.field_visit_report_wizard__disease_id
 msgid "Disease"
 msgstr "Хвороба"
 
@@ -295,22 +295,22 @@ msgid "A doctor cannot be their own mentor."
 msgstr "Лікар не може бути ментором самого себе."
 
 #. module: hr_hospital
-#: code:addons/hr_hospital/models/hr_hospital_category.py:0
+#: code:addons/hr_hospital/models/hospital_doctor_category.py:0
 msgid "Category name must be unique!"
 msgstr "Назва категорії має бути унікальною!"
 
 #. module: hr_hospital
-#: code:addons/hr_hospital/models/hr_hospital_category.py:0
+#: code:addons/hr_hospital/models/hospital_doctor_category.py:0
 msgid "This category name already exists!"
 msgstr "Ця назва категорії вже існує!"
 
 #. module: hr_hospital
-#: code:addons/hr_hospital/models/hr_hospital_doctor_history.py:0
+#: code:addons/hr_hospital/models/hospital_doctor_history.py:0
 msgid "Date Mismatch"
 msgstr "Невідповідність дат"
 
 #. module: hr_hospital
-#: code:addons/hr_hospital/models/hr_hospital_doctor_history.py:0
+#: code:addons/hr_hospital/models/hospital_doctor_history.py:0
 msgid "The doctor change date cannot be earlier than the appointment date."
 msgstr "Дата зміни лікаря не може бути ранішою за дату призначення."
 
@@ -420,61 +420,61 @@ msgid "Skin Infections"
 msgstr "Шкірні інфекції"
 
 #. module: hr_hospital
-#: model:ir.ui.view,arch_db:hr_hospital.view_hr_hospital_reassign_doctor_wizard_form
+#: model:ir.ui.view,arch_db:hr_hospital.view_mass_reassign_doctor_wizard_form
 msgid "Selection"
 msgstr "Вибір"
 
 #. module: hr_hospital
-#: model:ir.ui.view,arch_db:hr_hospital.view_hr_hospital_reassign_doctor_wizard_form
+#: model:ir.ui.view,arch_db:hr_hospital.view_mass_reassign_doctor_wizard_form
 msgid "Parameters"
 msgstr "Параметри"
 
 #. module: hr_hospital
-#: model:ir.ui.view,arch_db:hr_hospital.view_hr_hospital_reassign_doctor_wizard_form
+#: model:ir.ui.view,arch_db:hr_hospital.view_mass_reassign_doctor_wizard_form
 msgid "Reassign"
 msgstr "Перепризначити"
 
 #. module: hr_hospital
-#: model:ir.ui.view,arch_db:hr_hospital.view_hr_hospital_reassign_doctor_wizard_form
+#: model:ir.ui.view,arch_db:hr_hospital.view_mass_reassign_doctor_wizard_form
 msgid "Cancel"
 msgstr "Скасувати"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_reassign_doctor_wizard__doctor_id
+#: model:ir.model.fields,field_description:hr_hospital.field_mass_reassign_doctor_wizard__doctor_id
 msgid "New Doctor"
 msgstr "Новий лікар"
 
 #. module: hr_hospital
-#: model:ir.ui.view,arch_db:hr_hospital.view_hr_hospital_visit_report_wizard_form
+#: model:ir.ui.view,arch_db:hr_hospital.view_visit_report_wizard_form
 msgid "Subjects"
 msgstr "Суб'єкти"
 
 #. module: hr_hospital
-#: model:ir.ui.view,arch_db:hr_hospital.view_hr_hospital_visit_report_wizard_form
+#: model:ir.ui.view,arch_db:hr_hospital.view_visit_report_wizard_form
 msgid "Parameters"
 msgstr "Параметри"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_visit_report_wizard__doctor_ids
+#: model:ir.model.fields,field_description:hr_hospital.field_visit_report_wizard__doctor_ids
 msgid "Doctors"
 msgstr "Лікарі"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_visit_report_wizard__patient_ids
+#: model:ir.model.fields,field_description:hr_hospital.field_visit_report_wizard__patient_ids
 msgid "Patients"
 msgstr "Пацієнти"
 
 #. module: hr_hospital
-#: model:ir.model.fields,field_description:hr_hospital.field_hr_hospital_visit_report_wizard__only_completed
+#: model:ir.model.fields,field_description:hr_hospital.field_visit_report_wizard__only_completed
 msgid "Only Completed"
 msgstr "Тільки завершені"
 
 #. module: hr_hospital
-#: model:ir.ui.view,arch_db:hr_hospital.view_hr_hospital_visit_report_wizard_form
+#: model:ir.ui.view,arch_db:hr_hospital.view_visit_report_wizard_form
 msgid "Generate Report"
 msgstr "Згенерувати звіт"
 
 #. module: hr_hospital
-#: model:ir.ui.view,arch_db:hr_hospital.view_hr_hospital_visit_report_wizard_form
+#: model:ir.ui.view,arch_db:hr_hospital.view_visit_report_wizard_form
 msgid "Cancel"
 msgstr "Скасувати"

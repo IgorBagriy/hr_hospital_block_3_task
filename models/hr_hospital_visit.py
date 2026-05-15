@@ -8,11 +8,7 @@ class HospitalVisit(models.Model):
     _name = 'hr.hospital.visit'
     _description = 'Patient Visit'
 
-    visit_date = fields.Datetime(
-        string='Visit Date',
-        default=fields.Datetime.now,
-        required=True,
-    )
+    active = fields.Boolean(string='Active', default=True)
     doctor_id = fields.Many2one(
         comodel_name='hr.hospital.doctor',
         string='Doctor',
@@ -42,7 +38,6 @@ class HospitalVisit(models.Model):
     summary = fields.Html(string='Epicrisis')
 
     def write(self, vals):
-        """Prevent modification of critical fields for completed visits."""
         for rec in self:
             if rec.state == 'completed':
                 forbidden_fields = ['planned_date', 'actual_date', 'doctor_id', 'patient_id']
@@ -51,8 +46,14 @@ class HospitalVisit(models.Model):
         return super().write(vals)
 
     def unlink(self):
-        """Prevent deletion of completed visits."""
         for rec in self:
             if rec.state == 'completed':
                 raise ValidationError('Completed visits cannot be deleted!')
         return super().unlink()
+
+    def toggle_active(self):
+        """Prevent archiving of completed visits."""
+        for rec in self:
+            if rec.state == 'completed':
+                raise ValidationError('Completed visits cannot be archived or de-archived!')
+        return super().toggle_active()

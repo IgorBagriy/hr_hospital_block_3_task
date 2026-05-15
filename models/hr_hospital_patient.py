@@ -6,7 +6,7 @@ class HospitalPatient(models.Model):
 
     _name = 'hr.hospital.patient'
     _description = 'Hospital Patient'
-    _inherit = ['hr.hospital.medic.info']
+    _inherit = ['hospital.medic.info']
 
     name = fields.Char(string='Full Name', required=True)
     personal_doctor_id = fields.Many2one(
@@ -14,7 +14,7 @@ class HospitalPatient(models.Model):
         string='Personal Doctor',
     )
     doctor_history_ids = fields.One2many(
-        comodel_name='hr.hospital.doctor.history',
+        comodel_name='hospital.doctor.history',
         inverse_name='patient_id',
         string='Doctor History',
         readonly=True,
